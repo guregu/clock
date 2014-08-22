@@ -28,3 +28,7 @@ func (*realClock) Ticker(d time.Duration) *time.Ticker {
 func (*realClock) After(d time.Duration) <-chan time.Time {
 	return time.After(d)
 }
+
+func (*realClock) Since(t time.Time) time.Duration {
+	return time.Since(t)
+}

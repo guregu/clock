@@ -40,6 +40,11 @@ func Ticker(d time.Duration) *time.Ticker {
 	return Work.Ticker(d)
 }
 
+// Since returns the time elapsed since t.
+func Since(t time.Time) time.Duration {
+	return Work.Now().Sub(t)
+}
+
 // Clock provides the functions from the time package.
 type Clock interface {
 
@@ -63,6 +68,9 @@ type Clock interface {
 	// the intervals or drops ticks to make up for slow receivers.
 	// The duration d must be greater than zero; if not, Ticker will panic.
 	Ticker(d time.Duration) *time.Ticker
+
+	// Since returns the time elapsed since t.
+	Since(t time.Time) time.Duration
 
 	// TODO: At(t time.Time) <-chan time.Time
 }

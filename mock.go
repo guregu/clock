@@ -130,3 +130,7 @@ func (c *mock) After(d time.Duration) <-chan time.Time {
 	// TODO: make mockable
 	return time.After(d)
 }
+
+func (c *mock) Since(t time.Time) time.Duration {
+	return c.Now().Sub(t)
+}
